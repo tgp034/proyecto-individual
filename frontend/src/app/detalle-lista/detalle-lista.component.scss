@@ -1,0 +1,12 @@
+body, app-root {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .elementos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
