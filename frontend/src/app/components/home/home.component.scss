@@ -1,0 +1,17 @@
+body, app-root {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100%;
+}
+
+.comics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cabecera {
+  margin: 0;
+  padding: 0;
+}

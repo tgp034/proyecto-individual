@@ -1,0 +1,20 @@
+<app-cabecera></app-cabecera>
+<h2>{{ character.name }}</h2>
+<div class="character-detail">
+  <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" [alt]="character.name">
+  <div class="description">
+    <h3>Primera aparición:</h3>
+    <p>{{ this.firstAppearance }}</p>
+    <h3>Descripción:</h3>
+    <p>{{ character.description }}</p>
+  </div>
+</div>
+<h3>Cómics del personaje:</h3>
+  <div class="comics">
+    <app-tarjeta *ngFor="let comic of comics" 
+      [title]="comic.title" 
+      [image]="comic.thumbnail.path + '.' + comic.thumbnail.extension" 
+      [comic]="comic"
+      (selectComic)="onSelectComic(comic.id)">
+    </app-tarjeta>
+  </div>

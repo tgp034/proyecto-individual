@@ -1,0 +1,40 @@
+<app-cabecera></app-cabecera>
+<div *ngIf="comic">
+  <h2>{{ comic.title }}</h2>
+
+  <div class="comic-detail">
+    <img [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension" [alt]="comic.title">
+
+    <div class="description">
+
+      <div class="detail-header">
+        <button class="favorite-button" (click)="addToFavorites()">Añadir a favoritos</button>
+        <select [(ngModel)]="selectedList">
+          <option *ngFor="let list of lists" [value]="list.id">{{list.nombre}}</option>
+        </select>
+        <button class="add-to-list-button" (click)="addToList()">Añadir a lista</button>
+      </div>
+
+      <p>{{ comic.text }}</p>
+        <h3>Creadores:</h3>
+        <div class="creators">
+        <ul *ngIf="creators.length; else noCreators">
+          <li *ngFor="let creator of creators">{{ creator }}</li>
+        </ul>
+        <ng-template #noCreators>
+          <p>No hay creadores para este cómic.</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+  <h3>Personajes:</h3>
+  <div class="characters" *ngIf="characters.length; else noCharacters">
+    <app-tarjeta *ngFor="let character of characters" [title]="character.name"
+      [image]="character.thumbnail.path + '.' + comic.thumbnail.extension" [character]="character"
+      (selectCharacter)="onSelectCharacter($event)"></app-tarjeta>
+  </div>
+  <ng-template #noCharacters>
+    <p>No hay personajes para este cómic.</p>
+  </ng-template>
+</div>

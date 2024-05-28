@@ -1,0 +1,17 @@
+<app-cabecera></app-cabecera>
+<div>
+  <label>Nombre de la lista:
+    <input #listaNombre placeholder="Nombre de la lista" />
+  </label>
+  <button (click)="add(listaNombre.value); listaNombre.value=''">
+    Crear lista
+  </button>
+</div>
+
+<ul>
+  <li *ngFor="let lista of listas">
+    <button (click)="verDetalle(lista)">{{lista.nombre}}</button>
+    
+    <button class="delete" title="delete lista" *ngIf="lista.nombre !== 'Favoritos'" (click)="delete(lista)">X</button>
+  </li>
+</ul>

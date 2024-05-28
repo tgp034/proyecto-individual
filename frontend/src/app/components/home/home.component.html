@@ -1,0 +1,18 @@
+<app-cabecera class="cabecera"></app-cabecera>
+<div class="container">
+    <h2>Home page</h2>
+  
+    <div class="loading" *ngIf="loading">
+      <p>Loading comics...</p>
+    </div>
+  
+    <div class="comics" *ngIf="comics.length > 0">
+        <app-tarjeta *ngFor="let comic of comics" 
+          [title]="comic.title" 
+          [image]="comic.thumbnail.path + '.' + comic.thumbnail.extension" 
+          [comic]="comic"
+          (selectComic)="onSelectComic(comic.id)">
+        </app-tarjeta>
+    </div>
+  </div>
+  

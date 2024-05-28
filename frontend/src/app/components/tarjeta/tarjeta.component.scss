@@ -1,0 +1,46 @@
+.card {
+  
+    width: 250px;
+    margin: 1em;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(48, 29, 29, 0.15);
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    
+    &:hover {
+      box-shadow: 10px rgba(0, 0, 0, 0.3);
+      transform: translateY(-5px);
+    }
+
+    &:active {
+        transform: translateY(2px);
+      }
+  
+      h3 {
+        margin: 1em; // Increase margin
+        text-align: center; // Center text
+      }
+    
+      img {
+        width: 100%;
+        height: auto;
+        flex-grow: 1;
+        object-fit: cover; // This will ensure the aspect ratio of the image is maintained
+        border-radius: 15px 15px 0 0; // Round the top corners
+      }
+    
+      // Add a container for the text content to control padding
+      .content {
+        padding-top: 1em; // Add padding around the text
+        text-align: center; // Center text
+      }
+  }
+  
+  // Use flexbox to layout the cards in rows
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }

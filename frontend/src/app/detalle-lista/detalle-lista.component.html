@@ -1,0 +1,17 @@
+<app-cabecera></app-cabecera>
+<h2>{{lista.nombre}}</h2>
+
+<div class="elementos">
+  <app-tarjeta *ngFor="let comic of lista.comics"
+  [comic]="comic" 
+  [title]="comic.title"  
+  [image]="comic.thumbnail.path + '.' + comic.thumbnail.extension"
+  (selectComic)="onSelectComic(comic.id)">
+</app-tarjeta>
+  <app-tarjeta *ngFor="let character of lista.personajes"
+  [character]="character" 
+  [title]="character.name" 
+  [image]="character.thumbnail.path+ '.' + character.thumbnail.extension"
+  (selectCharacter)="onSelectCharacter(character.id)">
+</app-tarjeta>
+</div>

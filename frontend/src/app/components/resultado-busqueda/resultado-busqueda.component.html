@@ -1,0 +1,24 @@
+<app-cabecera></app-cabecera>
+<div class="comics" *ngIf="comics">
+  <div *ngFor="let comic of comics">
+    <app-tarjeta 
+      [comic]="comic" 
+      [title]="comic.title" 
+      [image]="comic.thumbnail.path + '.' + comic.thumbnail.extension"
+      (selectComic)="onSelectComic(comic.id)">
+    </app-tarjeta>
+  </div>
+</div>
+
+<div class="characters" *ngIf="characters">
+  <div *ngFor="let character of characters">
+    <app-tarjeta 
+      [character]="character" 
+      [title]="character.name" 
+      [image]="character.thumbnail.path + '.' + character.thumbnail.extension"
+      (selectCharacter)="onSelectCharacter(character.id)">
+    </app-tarjeta>
+  </div>
+</div>
+
+<div *ngIf="noResults">No se encontraron resultados.</div>
