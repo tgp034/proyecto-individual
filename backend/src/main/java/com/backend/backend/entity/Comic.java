@@ -8,6 +8,7 @@ public class Comic {
     @Id
     private long id;
     private String nombre;
+    @Column(length = 1000)
     private String descripcion;
     private String imagen;
 

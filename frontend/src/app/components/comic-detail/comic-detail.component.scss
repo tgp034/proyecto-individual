@@ -1,25 +1,32 @@
-:host {
+/* Importar una fuente de Google Fonts para los títulos */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
+:host {
   flex-direction: column;
   align-items: center;
+  background-color: #000; /* Fondo oscuro */
+  color: #fff; /* Texto en blanco para contraste */
 }
 
-h2 {
+h2, h3 {
   text-align: center;
+  font-family: 'Bangers', cursive; /* Fuente estilo cómic */
+  color: #e62429; /* Rojo Marvel */
 }
 
 .comic-detail {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  background: url('https://i.pinimg.com/originals/8f/cf/73/8fcf73562cb282cabdc0f1008533e187.jpg') no-repeat center center; /* Fondo temático */
+  background-size: cover;
 }
 
 .comic-detail img {
   flex: 1;
-  width:50%;
+  width: 50%;
   max-width: 400px;
-  padding-right: 15px;
-  align-items: center;
+  border: 2px solid #000000; /* Borde negro alrededor de la imagen */
 }
 
 .comic-detail .description {
@@ -29,13 +36,36 @@ h2 {
   align-items: center;
   padding: 5%;
   text-align: justify;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente para mejorar la legibilidad */
 }
 
-.comic-detail .description .creators{
-  align-items: center;
-  align-content: center;
-  text-align: justify;
-  display: inline-block; /* Hace que el elemento solo ocupe el espacio que necesita */
+/* Estilos para los botones, con colores y efectos alineados al tema Marvel */
+.favorite-button, .add-to-list-button {
+  background-color: #e62429; /* Rojo Marvel */
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 5px; /* Reducir el padding para disminuir el tamaño */
+  font-size: 13px; /* Reducir el tamaño de la letra */
+  margin: 0 5px; /* Añadir margen para separar los botones */
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.favorite-button:hover, .add-to-list-button:hover {
+  transform: scale(1.03); /* Efecto de "zoom" al pasar el mouse */
+}
+
+/* Estilos para el desplegable, alineados con el esquema de color */
+select {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid #e62429; /* Borde rojo */
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  max-width: 250px;
+  color: #000; /* Texto negro para contraste */
 }
 
 .characters {
@@ -43,16 +73,6 @@ h2 {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-}
+   color: #000; /* Texto negro para contraste */
 
-/* Estilos para los botones */
-
-/* Estilos para el desplegable */
-select {
-  width: 100%;
-  padding: 16px 20px;
-  border: none;
-  border-radius: 4px;
-  background-color: #f1f1f1;
-  max-width: 250px;
 }

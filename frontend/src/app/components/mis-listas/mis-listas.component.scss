@@ -1,45 +1,67 @@
-div {
-    margin: 20px;
-    label {
-      font-size: 1.2em;
-      color: #333;
-    }
-    input {
+div{
+  margin: 20px;
+  padding: 20px;
+  h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  button {
+    margin: 0px 10px;
+    background-color: #e62429; // Botones blancos
+    color: #ffffff; // Texto rojo en los botones
+    border: none; // Eliminar el borde predeterminado de los botones
+    padding: 10px; // Añadir algo de relleno a los botones
+    cursor: pointer; // Cambiar el cursor al pasar por encima de los botones
+    transition: background-color 0.3s ease; // Transición suave al cambiar el color de fondo de los botones
+    font-weight: bold;
+    border-radius: 5px;
+  }
+
+}
+
+label {
+  font-size: 1.2em;
+  color: #424242;
+  font-weight: bold;
+}
+input {
+  margin-left: 10px;
+  padding: 5px;
+  font-size: 1em;
+}
+button {
+  margin: 0px 10px;
+  background-color: #000000; // Botones blancos
+  color: #ffffff; // Texto rojo en los botones
+  border: none; // Eliminar el borde predeterminado de los botones
+  padding: 10px; // Añadir algo de relleno a los botones
+  cursor: pointer; // Cambiar el cursor al pasar por encima de los botones
+  transition: background-color 0.3s ease; // Transición suave al cambiar el color de fondo de los botones
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+button:hover{
+  transform: scale(1.03); 
+}
+
+ul {
+  margin: 20px;
+  list-style-type: none;
+  li {
+    margin-bottom: 10px;
+    .delete {
       margin-left: 10px;
-      padding: 5px;
-      font-size: 1em;
-    }
-    button {
-      margin-left: 10px;
-      padding: 5px 10px;
-      font-size: 1em;
+      padding: 2px 5px;
       color: #fff;
-      background-color: #007bff;
+      background-color: #dc3545;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       &:hover {
-        background-color: #0056b3;
+        background-color: #c82333;
       }
     }
   }
-  
-  ul {
-    margin: 20px;
-    list-style-type: none;
-    li {
-      margin-bottom: 10px;
-      .delete {
-        margin-left: 10px;
-        padding: 2px 5px;
-        color: #fff;
-        background-color: #dc3545;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        &:hover {
-          background-color: #c82333;
-        }
-      }
-    }
-  }
+}

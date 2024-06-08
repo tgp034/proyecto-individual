@@ -1,22 +1,46 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif; // Fuente legible y moderna
+  background-color: #000000; // Fondo claro para contraste con la cabecera
+  color: #333; // Color de texto oscuro para buena legibilidad
+
+}
 
 header {
   margin: 0;
-  padding: 0;
+  padding: 10px 0px 10px 0px; // Añadir relleno a la cabecera
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #dee2e6;
-  width: 100%;  // This ensures that the header takes up the full width of its container
+  background-color: #e62429; // Rojo Marvel
+  border-bottom: 1px solid #fff; // Borde blanco
+  width: 100%;  // Esto asegura que la cabecera ocupa todo el ancho de su contenedor
+  color: #fff; // Texto blanco
 }
 
 header button {
-  margin: 0 5px;
+  margin: 0 2%;
+  background-color: #ffffff; // Botones blancos
+  color: #000000; // Texto rojo en los botones
+  border: none; // Eliminar el borde predeterminado de los botones
+  padding: 10px; // Añadir algo de relleno a los botones
+  cursor: pointer; // Cambiar el cursor al pasar por encima de los botones
+  transition: background-color 0.3s ease; // Transición suave al cambiar el color de fondo de los botones
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+header button:hover {
+  background-color: #000000; // Cambiar el color de fondo de los botones a azul cuando se pasa el ratón por encima
+  color: #fff; // Cambiar el color del texto a blanco cuando se pasa el ratón por encima
 }
 
 header input {
   flex-grow: 1;
-  margin: 0 10px;
+  max-width: 40%; // Establece un ancho máximo para el buscador
+  margin: auto; // Centra el buscador si el espacio lo permite
   padding: 5px;
+  border: none; // Eliminar el borde predeterminado del input
+  border-radius: 5px; // Añadir bordes redondeados al input
 }

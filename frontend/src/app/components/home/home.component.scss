@@ -1,17 +1,34 @@
 body, app-root {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   height: 100vh;
   width: 100%;
+}
+
+.container {
+  padding: 20px; /* Añade un padding para evitar que el contenido toque los bordes */
+  max-width: 1200px; /* Limita el ancho máximo para grandes pantallas */
+  margin: auto; /* Centra el contenedor en la pantalla */
+}
+
+.loading {
+  display: flex;
+  justify-content: center; /* Centra el texto de carga */
+  align-items: center;
+  height: 100vh; /* Asegura que el loader ocupe toda la altura visible */
+  font-size: 1.5rem; /* Aumenta el tamaño del texto para hacerlo más visible */
+  color: #474747; /* Color de texto para el loading */
 }
 
 .comics {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 20px; /* Añade un espacio entre los elementos para evitar que se toquen */
 }
 
 .cabecera {
   margin: 0;
   padding: 0;
+  /* Considera añadir estilos aquí si necesitas personalizar la cabecera */
 }
