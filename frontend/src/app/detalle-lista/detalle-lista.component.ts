@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Lista } from '../models/modelos';
+import { Comic, Lista } from '../models/modelos';
 import { ActivatedRoute } from '@angular/router';
 import { ListaService } from '../services/lista.service';
 import { TarjetaComponent } from '../components/tarjeta/tarjeta.component';
@@ -44,5 +44,14 @@ export class DetalleListaComponent implements OnInit {
 
   onSelectCharacter(id: number) {
     this.router.navigate(['/hero', id]);
+  }
+
+  eliminarComic(comic: Comic): void {
+    if (this.lista && this.lista.id) {
+      this.listaService.removeComicFromLista(this.lista.id, comic).subscribe(() => {
+        // Actualizar la lista de comics después de eliminar
+        this.lista.comics = this.lista.comics.filter(c => c.id !== comic.id);
+      });
+    }
   }
 }

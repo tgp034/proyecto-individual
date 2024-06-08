@@ -6,7 +6,9 @@
   [comic]="comic" 
   [title]="comic.title"  
   [image]="comic.thumbnail.path + '.' + comic.thumbnail.extension"
-  (selectComic)="onSelectComic(comic.id)">
+  (selectComic)="onSelectComic(comic.id)"
+  [mostrarBotonEliminar]="true"
+  (eliminar)="eliminarComic(comic)">
 </app-tarjeta>
   <app-tarjeta *ngFor="let character of lista.personajes"
   [character]="character" 

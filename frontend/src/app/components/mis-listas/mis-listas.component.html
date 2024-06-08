@@ -11,7 +11,13 @@
 <ul>
   <li *ngFor="let lista of listas">
     <button (click)="verDetalle(lista)">{{lista.nombre}}</button>
-    
+    <!-- Botón de editar que solo se muestra si la lista no está siendo editada -->
+    <button *ngIf="listaEditandoId !== lista.id && lista.nombre !== 'Favoritos'" (click)="empezarEdicion(lista.id)" class="editar-btn">Cambiar nombre</button>
+    <!-- Campo de texto y botón de guardar que solo se muestran si la lista está siendo editada, ahora al lado del elemento -->
+    <ng-container *ngIf="listaEditandoId === lista.id">
+      <input #nuevoNombre type="text" [value]="lista.nombre" placeholder="Nuevo nombre" />
+      <button (click)="editarNombre(lista, nuevoNombre.value); terminarEdicion()">Guardar</button>
+    </ng-container>
     <button class="delete" title="delete lista" *ngIf="lista.nombre !== 'Favoritos'" (click)="delete(lista)">X</button>
   </li>
 </ul>

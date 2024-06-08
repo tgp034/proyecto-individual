@@ -1,4 +1,7 @@
-<div class="card" (click)="comic ? onSelectComic() : onSelectCharacter()">
-    <img [src]="image" [alt]="title">
-    <h3>{{ title }}</h3>
+<div class="card">
+    <div class="image-container">
+        <button class="delete-btn" *ngIf="mostrarBotonEliminar" (click)="emitirEliminar($event)">X</button>
+        <img [src]="image" [alt]="title">
+    </div>
+    <h3 (click)="comic ? onSelectComic() : onSelectCharacter()">{{ title }}</h3>
 </div>

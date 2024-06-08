@@ -14,13 +14,29 @@ import { Router } from '@angular/router';
 })
 export class MisListasComponent implements OnInit {
   listas!: Lista[];
-
+  listaEditandoId: number | null = null;
   constructor(private listaService: ListaService, private router: Router) { }
 
   ngOnInit(): void {
     this.getListas();
   }
 
+  empezarEdicion(id: number): void {
+    this.listaEditandoId = id;
+  }
+
+  editarNombre(lista: Lista, nuevoNombre: string): void {
+    // Aquí iría tu lógica para actualizar el nombre de la lista en el backend
+    this.listaService.updateNombreLista(lista.id, nuevoNombre).subscribe(() => {
+      lista.nombre = nuevoNombre; // Actualizar el nombre en la vista
+      this.terminarEdicion(); // Terminar la edición después de guardar
+    });
+  }
+
+  terminarEdicion(): void {
+    this.listaEditandoId = null;
+  }
+  
   getListas(): void {
     this.listaService.getListas().subscribe(listas => this.listas = listas);
   }

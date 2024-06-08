@@ -18,6 +18,7 @@ import com.backend.backend.repository.PersonajeRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.io.IOException;
@@ -189,6 +190,15 @@ public class DBController {
     public ResponseEntity<?> deleteLista(@PathVariable Long id) {
         listaRepository.deleteById(id);
         return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/listas/{id}/updateNombre")
+    public ResponseEntity<Lista> updateNombreLista(@PathVariable Long id, @RequestBody String nuevoNombre) {
+        Lista lista = listaRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Lista not found for this id :: " + id));
+        lista.setNombre(nuevoNombre);
+        final Lista updatedLista = listaRepository.save(lista);
+        return ResponseEntity.ok(updatedLista);
     }
 
     @PostMapping("/listas/{idLista}/addPersonaje/{personajeId}")

@@ -16,6 +16,10 @@ export class ListaService {
     return this.http.get<Lista[]>(`${this.apiUrl}/listas`);
   }
 
+  updateNombreLista(id: number, nuevoNombre: string): Observable<any> {
+    return this.http.put(`${this.apiUrl}/listas/${id}/updateNombre`, nuevoNombre);
+  }
+
   createLista(nombre: string): Observable<Lista> {
     return this.http.post<Lista>(`${this.apiUrl}/listas`, nombre);
   }
