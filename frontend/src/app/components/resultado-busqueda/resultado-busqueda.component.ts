@@ -34,11 +34,13 @@ export class ResultadoBusquedaComponent implements OnInit {
       if (this.searchComics) {
         this.comicService.findComicsByTitle(this.searchTerm).subscribe(comics => {
           this.comics = comics;
+          this.characters = [];
           this.noResults = comics.length === 0;
         });
       } else {
         this.comicService.findCharactersByName(this.searchTerm).subscribe(characters => {
           this.characters = characters;
+          this.comics = [];
           this.noResults = characters.length === 0;
         });
       }
